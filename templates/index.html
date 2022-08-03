@@ -27,7 +27,12 @@
         </div>
     {% endfor %}
     <p>Puit de texte:</p>
-    <textarea id="text-source" cols="100" rows="10"></textarea>
+    <textarea id="text-source" cols="100" rows="10">Salut papa! Comment vas-tu?
+
+J'ai laissé une toast dans le micro-ondes que tu pourras faire chauffer.
+        
+Aurevoir,
+Frangin</textarea>
     {% csrf_token %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'mots/js/script.js' %}"></script>
