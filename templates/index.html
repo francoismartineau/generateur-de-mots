@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mots/css/styles.css' %}">
+</head>
+<body>
+    {% for section, data in sections.items %}
+        <div id="{{section}}">
+            <p>{{data.titre}}</p>
+            {% for input in data.inputs %}
+                <label>{{input.label}}:</label>
+                {% if input.type == "select" %}
+                    <select id="{{section}}-{{input.partial_id}}">
+                        {% for option in input.options %}
+                            <option value="{{option}}">{{option}}</option>
+                        {% endfor %}
+                    </select>
+                {% else %}
+                    <input type="{{input.type}}" id="{{section}}-{{input.partial_id}}" value="{{input.default}}">
+                {% endif %}
+            {% endfor %}
+            <button class="section-submit" type="button" onclick="submitSection('{{section}}')">Go</button><br>
+            <textarea id="{{section}}-txt" cols="30" rows="10"></textarea>
+        </div>
+    {% endfor %}
+    <p>Puit de texte:</p>
+    <textarea id="text-source" cols="100" rows="10"></textarea>
+    {% csrf_token %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'mots/js/script.js' %}"></script>
+</body>
+</html>
