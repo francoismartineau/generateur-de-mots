@@ -5,9 +5,9 @@ import string
 import requests                     # pip install requests
 from bs4 import BeautifulSoup       # pip install beautifulsoup4
 
-import spacy                                    # pip install spacy
-french_nlp = spacy.load("fr_core_news_sm")
-eng_nlp = spacy.load("en_core_web_sm")
+#import spacy                                    # pip install spacy
+#french_nlp = spacy.load("fr_core_news_sm")
+#eng_nlp = spacy.load("en_core_web_sm")
 
 # -------------------------------------
 # WIKIPEDIA SCRAPPER : add words continuously
@@ -17,6 +17,7 @@ eng_nlp = spacy.load("en_core_web_sm")
 # WORD TYPES
 # select: type de mot
 # un choix non vide ajoute une autre boite
+"""
 def get_words_of_types(lang, types):
     nlp = {'fr': french_nlp, 'en': eng_nlp}[lang]
     all_words = list(get_all_words(lang))
@@ -32,7 +33,7 @@ def get_words_of_types(lang, types):
 def get_word_type(nlp, word):
     t = nlp(word)[0].pos_
     return t
-
+"""
 
 # -------------------------------------
 # WIKIPEDIA random word(s)
@@ -213,12 +214,12 @@ def split_by_tokens(txt, tokens):
     return words
 
 if __name__ == "__main__":
-    print('start')
-    types = ['DET', 'NOUN', 'VERB', 'DET', 'NOUN']
-    words = get_words_of_types('en', types)
-    txt = ' '.join(words)
-    print(txt)
-    exit()
+    #print('start')
+    #types = ['DET', 'NOUN', 'VERB', 'DET', 'NOUN']
+    #words = get_words_of_types('en', types)
+    #txt = ' '.join(words)
+    #print(txt)
+    #exit()
     txt = """Bonjour, comment allez-vous?
 Je vais bien merci.
 
